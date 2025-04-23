@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Home</title>
+</html>
+<style>
+@media print { /* This is for printing */
+    body {
+        -webkit-print-color-adjust: exact; /* Ensures colors are preserved */
+        print-color-adjust: exact;
+    }
+}
+body {
+    position: relative; /* This is for the footer */
+    background-image: linear-gradient(to right, #fff4f4, #ffffff); /* This is for the background color */
+    background-size: cover; /* Ensures the background image covers the page */
+    background-repeat: no-repeat; /* Prevents repeating the background image */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+}
+/* Styles for images */
+img {
+    width: 150px; /* Sets the width of the image */
+    height: auto; /* Ensures the image height is adjusted automatically */
+    margin-left: 10px; /* Sets the left margin */
+    z-index: 1; /* Sets the z-index */
+}
+.header-content {
+    display: flex; /* Displays the content as a flexbox */
+    align-items: center; /* Aligns the content to the center */
+    justify-content: center; /* Justifies the content to the center */
+    width: 100%; /* Sets the width to 100% */
+    text-align: center; /* Aligns the text to the center */
+    background-color: rgb(0, 0, 0); /* Sets the background color */
+    padding: 20px; /* Sets the padding */
+    z-index: 1; /* Sets the z-index */
+}
+.left-corner-text { /* Styles for the left corner text */
+    position: absolute; /* Sets the position to absolute */
+    top: 0; /* Sets the top position to 0 */
+    left: 0; /* Sets the left position to 0 */
+    margin: 20px; /* Sets the margin */
+    color: rgb(255,255,255);
+    font-weight: bold;
+    z-index: 1;
+}
+.intro-text, .additional-text {
+    font-size: 1.2em; /* Sets the font size */
+    font-weight: bold; /* Sets the font weight */
+    color: rgb(0, 0, 0); /* Sets the color */
+    margin-bottom: 20px; /* Sets the bottom margin */
+    z-index: 1; /* Sets the z-index */
+}
+.main-content {
+    display: flex; /* Displays the content as a flexbox */
+    justify-content: space-between; /* Justifies the content to space between */
+    align-items: flex-start; /* Aligns the items to the start */
+    padding: 20px; /* Sets the padding */
+    z-index: 1; /* Sets the z-index */
+}
+.image-content {
+    width: 35%; /* Sets the width to 35% */
+    display: flex; /* Displays the content as a flexbox */
+    flex-direction: column; /* Sets the flex direction to column */
+    justify-content: flex-start; /* Justifies the content to the start */
+    align-items: center; /* Aligns the items to the center */
+    z-index: 1; /* Sets the z-index */
+}
+.image-content img {
+    margin-bottom: 20px; /* Sets the bottom margin */
+    z-index: 1; /* Sets the z-index */
+}
+.center-text {
+    display: flex; /* Displays the content as a flexbox */
+    justify-content: center; /* Justifies the content to the center */
+    align-items: center; /* Aligns the items to the center */
+    height: 100vh; /* Sets the height to 100vh */
+    text-align: center; /* Aligns the text to the center */
+    z-index: 1; /* Sets the z-index */
+}
+.bottom-text {
+    display: flex; /* Displays the content as a flexbox */
+    justify-content: center; /* Justifies the content to the center */
+    align-items: center; /* Aligns the items to the center */
+    flex-direction: horizontal; /* Sets the flex direction to horizontal */
+    font-size: 1.2em; /* Sets the font size */
+    font-weight: bold; /* Sets the font weight */
+}
+h1 {
+    color: rgb(255, 255, 255); /* Sets the color */
+    z-index: 1; /* Sets the z-index */
+}
+h1, p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sets the text shadow */
+}
+.dashed-divider {
+    border: none; /* Removes the border */
+    border-top: 2px dashed white; /* Sets the border top to 2px dashed white */
+    margin: 20px 0; /* Sets the margin */
+    z-index: 1; /* Sets the z-index */
+}
+.back-to-homepage {
+    display: block; /* Displays the content as a block */
+    margin-top: 20px; /* Sets the top margin to 20px */
+    font-size: 1.2em; /* Sets the font size */
+    font-weight: bold; /* Sets the font weight */
+    color: rgb(0, 0, 0); /* Sets the color */
+    text-align: center; /* Aligns the text to the center */
+    text-decoration: none; /* Removes the text decoration */
+}
+.back-to-homepage:hover {
+    text-decoration: underline; /* Underlines the text on hover */
+}
+.thank-you {
+    margin-top: 20px; /* Sets the top margin to 20px */
+    max-width: 100%; /* Sets the max width to 100% */
+    height: auto; /* Sets the height to auto */
+    display: block; /* Displays as a block */
+    margin-left: auto; /* Sets the left margin to auto */
+    margin-right: auto; /* Sets the right margin to auto */
+}
+.text-content p {
+    position: relative; /* Sets the position to relative */
+    z-index: 1; /* Sets the z-index */
+}
+
+.text-content img.book-image {
+    float: right; /* Floats the image to the right */
+    margin-left: 20px; /* Sets the left margin to 20px */
+    margin-right: 20px; /* Sets the right margin to 20px */
+    margin-top: 0px; /* Sets the top margin to 0px */
+}
+</style>
+</head>
+<body class="body">
+    <header class="header">
+        <div class="header-content">
+            <div class="left-corner-text">
+            </div>
+            <h1>About Me</h1>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="intro-text">
+            <div class="text-content">
+                <p class="intro-text">
+                    "My name is Joshua Thompson and I'm a sophomore at Kennesaw State University. I'm majoring in Information Technology and I'm minoring in Business. I enjoy Information Technology because I love creating new products that will keep society growing as a whole. I have learned how to code in Java, Python, and now I'm learning how to write in SQL and HTML. I'm currently learning how to fix problems consumers may have with their computers such as troubleshooting. Information Technology is a fun major because people don't have to code all day. People can be creative and make products hands-on as well. Compared to any other majors, Information Technology is very versatile. I believe if it wasn't for technology, life wouldn't have evolved as fast as it did. "
+                </p>
+        <hr class ="dashed-divider">
+        <div class = "left corner text">
+
+        </div>
+        
+        </div>
+    </header>
+    <div class = "main-content">
+        <div class = "text-content">
+            <p class = "intro-text">
+                "My name is Joshua Thompson and I'm a sophomore at Kennesaw State University. I'm majoring in Information Technology and I'm minoring in Business. I enjoy Information Technology because I love creating new products that will keep society growing as a whole. I have learned how to code in Java, Python, and now I'm learning how to write in SQL and HTML. I'm currently learning how to fix problems consumers may have with their computers such as troubleshooting. Information Technology is a fun major because people don't have to code all day. People can be creative and make products hands-on as well. Compared to any other majors, Information Technology is very versatile. I believe if it wasn't for technology, life wouldn't have evolved as fast as it did. "
+              
+            </p>
+            <hr class="dashed-divider">
+            <p class="additional-text">
+                "Some of the hobbies that I do are that I skateboard, model, and create content. I would make this my main hustle, but I don't have much progression with it so it'll take some time. I always try and do tasks I've done before to add flavor into my life. I feel like people get comfortable with doing the same habits daily after they finish working. I enjoy hanging with family and friends. Relationships are special to me because each one is unique and teaches you a lesson. Some people say the reasoning why they don't have friends is because the world is cruel and it's true. I agree to disagree because even though there's negativity, there's positivity. People should understand the people who are negative so they can keep them out of their life. When they're able to keep negative people out of their life, they can make friends with people who are positive. I don't think people should live their lives without making friends because they may end up miserable. This life is not about only one person, but everyone else."
+            </p>
+            <p class="additional-text">
+                "I enjoy reading books as well. Specifically, I read self-growth and philosophy books beacuse they teach me how to be a better individual for myself, my friends, and the world. I would refer the books called, "Beyond Order", by Jordan Peterson. I feel that people have underestimated the impact books can have on their minds. It's very important to learn new things every day and books are the antidote for that. If people don't like books, you can sign up for online or in-person courses that teach you skills that could help you. Reading books has always been looked down upon because people don't want to come off as weird, but being weird makes you stand out. What's weird to someone else could be cool to another person and that's fine. "
+            </p>
+        </div>
+        <div class="image-content">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsFMevX225u-NIiaO8hLCc6Des3gkOjUJg3g&s" alt="SQL">
+            <img src="https://muralsyourway.vtexassets.com/arquivos/ids/241160/Skateboard-Sunset-Mural-Wallpaper.jpg?v=638164405202200000" alt="Skateboard">
+            <img src="https://www.southernliving.com/thmb/PnNtH0SZmDrtF-jN0aPtGHou23E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1328567171-e0cc3a2143094e0fb46f7432115b202d.jpg"alt = "Book">
+
+        </div>
+    </div>
+    <p class = "bottom-text">
+        "Thank you for reading about me! Do you want to contact me? Click on my contact link. I would love to be in contact with all of you"
+    </p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href = "firstt.html" class = "back-to-homepage">Back to Homepage</a>
+</body>
+</html>
