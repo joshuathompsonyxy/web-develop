@@ -43,55 +43,37 @@
                 // Clear any previous messages
                 messageContainer.innerHTML = '';
 
-                // Basic validation (you can add more robust validation)
                 let hasErrors = false;
 
-                if (nameValue === '') {
+                // Validation for the name field: Allow only letters and spaces
+                const nameRegex = /^[a-zA-Z\s]+$/;
+                if (!nameRegex.test(nameValue)) {
                     const nameError = document.createElement('p');
                     nameError.className = 'error-message';
-                    nameError.textContent = 'Please enter your name.';
+                    nameError.textContent = 'Invalid name. Please use only letters and spaces.';
                     messageContainer.appendChild(nameError);
                     hasErrors = true;
                 }
 
-                if (emailValue === '') {
+                // Validation for the email field: Must end with "@gmail.com"
+                const emailRegex = /@gmail\.com$/;
+                if (!emailRegex.test(emailValue)) {
                     const emailError = document.createElement('p');
                     emailError.className = 'error-message';
-                    emailError.textContent = 'Please enter your email.';
-                    messageContainer.appendChild(emailError);
-                    hasErrors = true;
-                } else if (!isValidEmail(emailValue)) { // Use a helper function
-                    const emailError = document.createElement('p');
-                    emailError.className = 'error-message';
-                    emailError.textContent = 'Please enter a valid email address.';
+                    emailError.textContent = 'Invalid email.  Must end with "@gmail.com".';
                     messageContainer.appendChild(emailError);
                     hasErrors = true;
                 }
 
                 if (!hasErrors) {
-                    // Simulate successful submission with correct credentials
-                    if (nameValue === "John Doe" && emailValue === "[email address removed]") { // Replace with your desired credentials
-                        const successMessage = document.createElement('p');
-                        successMessage.className = 'success-message';
-                        successMessage.textContent = 'Submitted!';
-                        messageContainer.appendChild(successMessage);
-                        //  form.reset(); //removed form reset
-                    } else {
-                         const credentialsError = document.createElement('p');
-                        credentialsError.className = 'error-message';
-                        credentialsError.textContent = 'Invalid credentials. Please use "John Doe" and "[email address removed]".';
-                        messageContainer.appendChild(credentialsError);
-                    }
+                    const successMessage = document.createElement('p');
+                    successMessage.className = 'success-message';
+                    successMessage.textContent = 'Submitted!';
+                    messageContainer.appendChild(successMessage);
+                    // form.reset();  // Removed form reset
                 }
             });
-
-            // Helper function to validate email format (basic check)
-            function isValidEmail(email) {
-                // A more robust check would use a regular expression, but this is sufficient for the example
-                return email.includes('@') && email.includes('.');
-            }
         });
     </script>
 </body>
 </html>
-
