@@ -1,55 +1,97 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Form</title>
-    </head>
+<head>
+    <title>Name and Email Form</title>
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .success-message {
+            color: green;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
 <body>
-    <form id="myForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-        <button type ="submit">Submit</button>
-    </form>
-    <script>
-         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('myForm');
+    <h2>Enter Your Information</h2>
+    <form id="nameEmailForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <button type="submit">Submit</button>
+    </form>
 
-            form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
+    <div id="messageContainer"></div>
 
-                const nameInput = document.getElementById('name');
-                const emailInput = document.getElementById('email');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('nameEmailForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageContainer = document.getElementById('messageContainer');
 
-                const formData = {
-                    name: nameInput.value,
-                    email: emailInput.value
-                };
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
 
-                console.log('Form data:', formData); // Check if data is captured
+                const nameValue = nameInput.value.trim();
+                const emailValue = emailInput.value.trim();
 
-                // COMMENT OUT THE ENTIRE FETCH BLOCK
-                // const apiUrl = 'YOUR_THIRD_PARTY_API_ENDPOINT';
-                // fetch(apiUrl, {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     },
-                //     body: JSON.stringify(formData)
-                // })
-                // .then(response => { return response.json(); })
-                // .then(data => {
-                //     console.log('Success:', data);
-                //     alert('Form submitted successfully!');
-                //     form.reset();
-                // })
-                // .catch((error) => {
-                //     console.error('Error:', error);
-                //     alert('There was an error submitting the form.');
-                // });
-            });
-        });
-    }}
-    </script>
+                // Clear any previous messages
+                messageContainer.innerHTML = '';
+
+                // Basic validation (you can add more robust validation)
+                let hasErrors = false;
+
+                if (nameValue === '') {
+                    const nameError = document.createElement('p');
+                    nameError.className = 'error-message';
+                    nameError.textContent = 'Please enter your name.';
+                    messageContainer.appendChild(nameError);
+                    hasErrors = true;
+                }
+
+                if (emailValue === '') {
+                    const emailError = document.createElement('p');
+                    emailError.className = 'error-message';
+                    emailError.textContent = 'Please enter your email.';
+                    messageContainer.appendChild(emailError);
+                    hasErrors = true;
+                } else if (!isValidEmail(emailValue)) { // Use a helper function
+                    const emailError = document.createElement('p');
+                    emailError.className = 'error-message';
+                    emailError.textContent = 'Please enter a valid email address.';
+                    messageContainer.appendChild(emailError);
+                    hasErrors = true;
+                }
+
+                if (!hasErrors) {
+                    // Simulate successful submission with correct credentials
+                    if (nameValue === "John Doe" && emailValue === "[email address removed]") { // Replace with your desired credentials
+                        const successMessage = document.createElement('p');
+                        successMessage.className = 'success-message';
+                        successMessage.textContent = 'Submitted!';
+                        messageContainer.appendChild(successMessage);
+                        //  form.reset(); //removed form reset
+                    } else {
+                         const credentialsError = document.createElement('p');
+                        credentialsError.className = 'error-message';
+                        credentialsError.textContent = 'Invalid credentials. Please use "John Doe" and "[email address removed]".';
+                        messageContainer.appendChild(credentialsError);
+                    }
+                }
+            });
+
+            // Helper function to validate email format (basic check)
+            function isValidEmail(email) {
+                // A more robust check would use a regular expression, but this is sufficient for the example
+                return email.includes('@') && email.includes('.');
+            }
+        });
+    </script>
 </body>
 </html>
+
