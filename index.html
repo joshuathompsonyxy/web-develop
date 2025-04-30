@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Form</title>
-    </head>
+<head>
+    <title>My Form</title>
+</head>
 <body>
-    <form id="myForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-        <button type ="submit">Submit</button>
-    </form>
-    <script>
-         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('myForm');
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <button type ="submit">Submit</button>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('myForm');
 
-            form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent the default form submission
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
 
-                const nameInput = document.getElementById('name');
-                const emailInput = document.getElementById('email');
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
 
-                const formData = {
-                    name: nameInput.value,
-                    email: emailInput.value
-                };
+                const formData = {
+                    name: nameInput.value,
+                    email: emailInput.value
+                };
 
-                // Replace with the actual API endpoint of the service you choose
-                const apiUrl = 'YOUR_THIRD_PARTY_API_ENDPOINT';
+                console.log('Form data:', formData); // Check if data is captured
 
-                fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json' // Or the content type expected by the API
-                        // You might need other headers depending on the API (e.g., API keys)
-                    },
-                    body: JSON.stringify(formData) // Convert the data to JSON
-                })
-                .then(response => { return response.json(); }) // Explicitly return the parsed JSON
-                .then(data => {
-                    console.log('Success:', data);
-                    alert('Form submitted successfully!'); // Optional success message
-                    form.reset(); // Clear the form
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    alert('There was an error submitting the form.'); // Optional error message
-                });
-            });
-        });
-    </script>
+                // COMMENT OUT THE ENTIRE FETCH BLOCK
+                // const apiUrl = 'YOUR_THIRD_PARTY_API_ENDPOINT';
+                // fetch(apiUrl, {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //     },
+                //     body: JSON.stringify(formData)
+                // })
+                // .then(response => { return response.json(); })
+                // .then(data => {
+                //     console.log('Success:', data);
+                //     alert('Form submitted successfully!');
+                //     form.reset();
+                // })
+                // .catch((error) => {
+                //     console.error('Error:', error);
+                //     alert('There was an error submitting the form.');
+                // });
+            });
+        });
+    </script>
 </body>
 </html>
